@@ -39,7 +39,19 @@ Le service à bien son propre dossier privé dans /tmp:
 
 ## Question 3:
 
-# A toi de jouer PL
+Policy module généré avec sepolgen, complété à l'aide de audit2allow
+
+On peut acceder en lecture/ecriture à /var/www/html
+
+![exemple-curl](./res/curlexmp.png)
+
+On voit aussi qu'on ne peut pas accéder à /etc/ssl
+
+Autre exemple, en lecture:
+
+![exemple-curl-r](./res/curl_ex_r.png) 
+
+
 
 ## Question 4: 
 
