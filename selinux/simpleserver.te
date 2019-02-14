@@ -5,6 +5,7 @@ require {
 	type node_t;
 	type soundd_port_t;
 	type httpd_sys_content_t;
+	type unreserved_port_t;
 };
 ########################################
 #
@@ -31,7 +32,10 @@ miscfiles_read_localization(simpleserver_t)
 # Allow working with tcp socket 
 allow simpleserver_t self:tcp_socket { accept bind create getattr listen read shutdown write };
 allow simpleserver_t node_t:tcp_socket node_bind;
+allow simpleserver_t self:tcp_socket setopt;
 allow simpleserver_t soundd_port_t:tcp_socket name_bind;
+allow simpleserver_t unreserved_port_t:tcp_socket name_bind;
 
+# Allow working with /var/www/html content
 allow simpleserver_t httpd_sys_content_t:dir read;
 allow simpleserver_t httpd_sys_content_t:file { getattr ioctl open read write };
