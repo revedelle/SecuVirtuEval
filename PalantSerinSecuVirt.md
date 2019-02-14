@@ -31,11 +31,11 @@ sudo systemctl start httpserver.service
 
 Le service est executé avec l'utilisateur httptest qui n'as pas de bash ni de privilèges
 
-![non-root](grepnonroot.png)
+![non-root](./grepnonroot.png)
 
 Le service à bien son propre dossier privé dans /tmp:
 
-![tmp-grep](tmpgrep.png)
+![tmp-grep](./tmpgrep.png)
 
 ## Question 3:
 
