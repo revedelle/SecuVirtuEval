@@ -1,0 +1,40 @@
+
+## <summary>policy for simpleserver</summary>
+
+########################################
+## <summary>
+##	Execute simpleserver_exec_t in the simpleserver domain.
+## </summary>
+## <param name="domain">
+## <summary>
+##	Domain allowed to transition.
+## </summary>
+## </param>
+#
+interface(`simpleserver_domtrans',`
+	gen_require(`
+		type simpleserver_t, simpleserver_exec_t;
+	')
+
+	corecmd_search_bin($1)
+	domtrans_pattern($1, simpleserver_exec_t, simpleserver_t)
+')
+
+######################################
+## <summary>
+##	Execute simpleserver in the caller domain.
+## </summary>
+## <param name="domain">
+##	<summary>
+##	Domain allowed access.
+##	</summary>
+## </param>
+#
+interface(`simpleserver_exec',`
+	gen_require(`
+		type simpleserver_exec_t;
+	')
+
+	corecmd_search_bin($1)
+	can_exec($1, simpleserver_exec_t)
+')

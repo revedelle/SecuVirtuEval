@@ -1,0 +1,17 @@
+version: "3.3"
+services:
+  httpserver:
+    container_name: httpserver
+    build: .
+    image: httpserverimage
+    volumes: 
+      - testvolume:/tmp
+    environment: 
+      - EVAL_PORT=8080
+    ports: 
+      - "8080:8080"
+    read_only: true
+
+volumes:
+  testvolume:
+

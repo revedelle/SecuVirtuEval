@@ -1,0 +1,1 @@
+/usr/local/bin/simpleserver		--	gen_context(system_u:object_r:simpleserver_exec_t,s0)

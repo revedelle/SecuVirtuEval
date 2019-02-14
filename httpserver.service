@@ -1,0 +1,32 @@
+#Fichier à placer dans /etc/systemd/system/
+[Unit]
+Description=Simple httpserver python for eval
+
+[Service]
+User=httptest
+
+ExecStart=/usr/bin/httpserver.py
+
+#Le service a son propre dossier dans /tmp
+PrivateTmp=true
+
+#Le service a son propre dossier dans /dev
+PrivateDevices=true
+
+#Le service ne peux pas modifier le contenu de /usr et /etc
+ReadOnlyDirectories= /usr /etc
+
+#Le procesus du service et ses fils ne peuvent pas gagner de privilèges
+NoNewPrivileges=true
+
+#Filtrage des appels systemes
+SystemCallFilter=~@debug @obsolete
+
+#Limitation de l'utilisation de la RAM par le service 
+MemoryMax=200M
+
+#Redémarre uniquement en cas de crash
+Restart=on-failure
+
+[Install]
+WantedBy=multi-user.target
