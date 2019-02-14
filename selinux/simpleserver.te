@@ -41,14 +41,14 @@ allow simpleserver_t node_t:tcp_socket node_bind;
 allow simpleserver_t self:tcp_socket setopt;
 allow simpleserver_t soundd_port_t:tcp_socket name_bind;
 allow simpleserver_t unreserved_port_t:tcp_socket name_bind;
+allow simpleserver_t net_conf_t:file { getattr open read };
+allow simpleserver_t self:netlink_route_socket { bind create getattr nlmsg_read read write };
+
 
 # Allow working with /var/www/html content
 allow simpleserver_t httpd_sys_content_t:file { create getattr ioctl open read write };
 allow simpleserver_t httpd_sys_content_t:dir { read add_name write };
 allow simpleserver_t httpd_config_t:dir search;
-
-allow simpleserver_t net_conf_t:file { getattr open read };
-allow simpleserver_t self:netlink_route_socket { bind create getattr nlmsg_read read write };
 
 
 
