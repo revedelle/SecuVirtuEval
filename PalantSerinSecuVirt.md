@@ -5,13 +5,26 @@
 
 ## Question 1:
 
-Le fichier de configuration pour le service est placé dans /etc/systemd/system/
+Préparons l'environnement pour l'execution du service:
+
+```bash
+#Création de l'utilisateur qui executera le service
+useradd httptest
+#Le script appartient au nouvel utilisateur créé
+chown httptest httpserver.py 
+#Le script est maintenant executable
+chmod u+x httpserver.py
+#Copie du script dans /usr/bin
+sudo cp httpserver.py /usr/bin
+```
+
+Il faut placer httpserver.service dans /etc/systemd/system/
 
 Pour lancer le service on execute les commandes suivante:
 
 ```bash
-systemctl daemon-reload
-systemctl start httpserver.service
+sudo systemctl daemon-reload
+sudo systemctl start httpserver.service
 ```
 
 ## Question 2:
