@@ -6,6 +6,9 @@ require {
 	type soundd_port_t;
 	type httpd_sys_content_t;
 	type unreserved_port_t;
+	type httpd_config_t;
+	type net_conf_t;
+	type bin_t;
 };
 ########################################
 #
@@ -16,6 +19,7 @@ type simpleserver_t;
 type simpleserver_exec_t;
 init_daemon_domain(simpleserver_t, simpleserver_exec_t)
 
+# Leave commented unless testing
 #permissive simpleserver_t;
 
 ########################################
@@ -26,8 +30,10 @@ allow simpleserver_t self:fifo_file rw_fifo_file_perms;
 allow simpleserver_t self:unix_stream_socket create_stream_socket_perms;
 
 domain_use_interactive_fds(simpleserver_t)
-
 miscfiles_read_localization(simpleserver_t)
+
+allow simpleserver_t bin_t:file map;
+allow simpleserver_t bin_t:file { execute execute_no_trans };
 
 # Allow working with tcp socket 
 allow simpleserver_t self:tcp_socket { accept bind create getattr listen read shutdown write };
@@ -37,5 +43,12 @@ allow simpleserver_t soundd_port_t:tcp_socket name_bind;
 allow simpleserver_t unreserved_port_t:tcp_socket name_bind;
 
 # Allow working with /var/www/html content
-allow simpleserver_t httpd_sys_content_t:dir read;
-allow simpleserver_t httpd_sys_content_t:file { getattr ioctl open read write };
+allow simpleserver_t httpd_sys_content_t:file { create getattr ioctl open read write };
+allow simpleserver_t httpd_sys_content_t:dir { read add_name write };
+allow simpleserver_t httpd_config_t:dir search;
+
+allow simpleserver_t net_conf_t:file { getattr open read };
+allow simpleserver_t self:netlink_route_socket { bind create getattr nlmsg_read read write };
+
+
+
