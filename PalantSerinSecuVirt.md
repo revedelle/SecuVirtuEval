@@ -3,6 +3,12 @@
 
 ---
 
+## Prelude
+
+#### Les fichiers correspondants aux question 1 et 2 sont dans le dossier systemd
+#### Les fichiers correspondants à la question 3 sont dans le dossier selinux
+#### Les fichiers correspondants aux question 4 et 5 sont dans le dossier docker
+
 ## Question 1:
 
 Préparons l'environnement pour l'execution du service:
