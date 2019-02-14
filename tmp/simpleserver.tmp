@@ -3326,6 +3326,7 @@ require {
 	type node_t;
 	type soundd_port_t;
 	type httpd_sys_content_t;
+	type unreserved_port_t;
 };
 ########################################
 #
@@ -3335,277 +3336,277 @@ require {
 type simpleserver_t;
 type simpleserver_exec_t;
  	 	
-#line 16
+#line 17
 ##### begin init_daemon_domain(simpleserver_t,simpleserver_exec_t) depth: 1
-#line 16
+#line 17
  	
-#line 16
+#line 17
 	
-#line 16
+#line 17
 	
-#line 16
+#line 17
 		require {
-#line 16
+#line 17
 			
-#line 16
+#line 17
 		attribute direct_run_init, direct_init, direct_init_entry;
-#line 16
+#line 17
 		type init_t;
-#line 16
+#line 17
 		role system_r;
-#line 16
+#line 17
 		attribute daemon;
-#line 16
+#line 17
 		attribute initrc_transition_domain;
-#line 16
+#line 17
 		attribute initrc_domain;
-#line 16
+#line 17
 	
-#line 16
+#line 17
 		} # end require
-#line 16
+#line 17
 	
-#line 16
+#line 17
 
-#line 16
+#line 17
 
-#line 16
+#line 17
 	typeattribute simpleserver_t daemon;
-#line 16
+#line 17
 	typeattribute simpleserver_exec_t direct_init_entry;
-#line 16
+#line 17
 
-#line 16
+#line 17
 	 	 	
-#line 16
+#line 17
 ##### begin domain_type(simpleserver_t) depth: 2
-#line 16
+#line 17
  	
-#line 16
+#line 17
 	# start with basic domain
-#line 16
+#line 17
 	 	 	
-#line 16
+#line 17
 ##### begin domain_base_type(simpleserver_t) depth: 3
-#line 16
+#line 17
  	
-#line 16
+#line 17
 	
-#line 16
+#line 17
 	
-#line 16
+#line 17
 		require {
-#line 16
+#line 17
 			
-#line 16
+#line 17
 		attribute domain;
-#line 16
+#line 17
 	
-#line 16
+#line 17
 		} # end require
-#line 16
+#line 17
 	
-#line 16
+#line 17
 
-#line 16
+#line 17
 
-#line 16
+#line 17
 	typeattribute simpleserver_t domain;
-#line 16
+#line 17
 
-#line 16
+#line 17
 	 	
-#line 16
+#line 17
 ##### end domain_base_type(simpleserver_t) depth: 2
-#line 16
+#line 17
  	
-#line 16
+#line 17
 
-#line 16
+#line 17
 	# Only way to get corenet_unlabeled packets disabled to work
-#line 16
+#line 17
 	 	 	
-#line 16
+#line 17
 ##### begin corenet_all_recvfrom_unlabeled(simpleserver_t) depth: 3
-#line 16
+#line 17
  	
-#line 16
+#line 17
 	
-#line 16
+#line 17
 	
-#line 16
+#line 17
 		require {
-#line 16
+#line 17
 			
-#line 16
+#line 17
                 attribute corenet_unlabeled_type;
-#line 16
+#line 17
 	
-#line 16
+#line 17
 		} # end require
-#line 16
+#line 17
 	
-#line 16
+#line 17
 
-#line 16
+#line 17
 	typeattribute simpleserver_t corenet_unlabeled_type;
-#line 16
+#line 17
 
-#line 16
+#line 17
 	 	
-#line 16
+#line 17
 ##### end corenet_all_recvfrom_unlabeled(simpleserver_t) depth: 2
-#line 16
+#line 17
  	
-#line 16
+#line 17
 
-#line 16
+#line 17
 	 	
-#line 16
+#line 17
 ##### end domain_type(simpleserver_t) depth: 1
-#line 16
+#line 17
  	
-#line 16
+#line 17
 	 	 	
-#line 16
+#line 17
 ##### begin domain_entry_file(simpleserver_t,simpleserver_exec_t) depth: 2
-#line 16
+#line 17
  	
-#line 16
+#line 17
 	
-#line 16
+#line 17
 	
-#line 16
+#line 17
 		require {
-#line 16
+#line 17
 			
-#line 16
+#line 17
 		attribute entry_type;
-#line 16
+#line 17
 	
-#line 16
+#line 17
 		} # end require
-#line 16
+#line 17
 	
-#line 16
+#line 17
 
-#line 16
+#line 17
 
-#line 16
+#line 17
 	allow simpleserver_t simpleserver_exec_t:file entrypoint;
-#line 16
+#line 17
 	allow simpleserver_t simpleserver_exec_t:file { { getattr open map read execute ioctl } ioctl lock };
-#line 16
+#line 17
 
-#line 16
+#line 17
 	typeattribute simpleserver_exec_t entry_type;
-#line 16
+#line 17
 
-#line 16
+#line 17
 	 	 	
-#line 16
+#line 17
 ##### begin corecmd_executable_file(simpleserver_exec_t) depth: 3
-#line 16
+#line 17
  	
-#line 16
+#line 17
 	
-#line 16
+#line 17
 	
-#line 16
+#line 17
 		require {
-#line 16
+#line 17
 			
-#line 16
+#line 17
 		attribute exec_type;
-#line 16
+#line 17
 	
-#line 16
+#line 17
 		} # end require
-#line 16
+#line 17
 	
-#line 16
+#line 17
 
-#line 16
+#line 17
 
-#line 16
+#line 17
 	typeattribute simpleserver_exec_t exec_type;
-#line 16
+#line 17
 
-#line 16
+#line 17
 	 	 	
-#line 16
+#line 17
 ##### begin files_type(simpleserver_exec_t) depth: 4
-#line 16
+#line 17
  	
-#line 16
+#line 17
 	
-#line 16
+#line 17
 	
-#line 16
+#line 17
 		require {
-#line 16
+#line 17
 			
-#line 16
+#line 17
 		attribute file_type, non_security_file_type, non_auth_file_type;
-#line 16
+#line 17
 	
-#line 16
+#line 17
 		} # end require
-#line 16
+#line 17
 	
-#line 16
+#line 17
 
-#line 16
+#line 17
 
-#line 16
+#line 17
 	typeattribute simpleserver_exec_t file_type, non_security_file_type, non_auth_file_type;
-#line 16
+#line 17
 
-#line 16
+#line 17
 	 	
-#line 16
+#line 17
 ##### end files_type(simpleserver_exec_t) depth: 3
-#line 16
+#line 17
  	
-#line 16
+#line 17
 
-#line 16
+#line 17
 	 	
-#line 16
+#line 17
 ##### end corecmd_executable_file(simpleserver_exec_t) depth: 2
-#line 16
+#line 17
  	
-#line 16
+#line 17
 
-#line 16
+#line 17
 	#optional_policy(`
-#line 16
+#line 17
 	#	unconfined_exec_typebounds(simpleserver_exec_t)
-#line 16
+#line 17
 	#')
-#line 16
+#line 17
 
-#line 16
+#line 17
 	 	
-#line 16
+#line 17
 ##### end domain_entry_file(simpleserver_t,simpleserver_exec_t) depth: 1
-#line 16
+#line 17
  	
-#line 16
+#line 17
 
-#line 16
+#line 17
 	type_transition initrc_domain simpleserver_exec_t:process simpleserver_t;
-#line 16
+#line 17
 
-#line 16
+#line 17
 	
-#line 16
+#line 17
 
-#line 16
+#line 17
 	 	
-#line 16
+#line 17
 ##### end init_daemon_domain(simpleserver_t,simpleserver_exec_t) depth: 0
-#line 16
+#line 17
  	
 
 #permissive simpleserver_t;
@@ -3618,177 +3619,180 @@ allow simpleserver_t self:fifo_file { open { getattr read write append ioctl loc
 allow simpleserver_t self:unix_stream_socket { { create { ioctl read getattr lock write setattr append bind connect getopt setopt shutdown } } listen accept };
 
  	 	
-#line 27
+#line 28
 ##### begin domain_use_interactive_fds(simpleserver_t) depth: 1
-#line 27
+#line 28
  	
-#line 27
+#line 28
 	
-#line 27
+#line 28
 	
-#line 27
+#line 28
 		require {
-#line 27
+#line 28
 			
-#line 27
+#line 28
 		attribute privfd;
-#line 27
+#line 28
 	
-#line 27
+#line 28
 		} # end require
-#line 27
+#line 28
 	
-#line 27
+#line 28
 
-#line 27
+#line 28
 
-#line 27
+#line 28
 	allow simpleserver_t privfd:fd use;
-#line 27
+#line 28
 
-#line 27
+#line 28
 	 	
-#line 27
+#line 28
 ##### end domain_use_interactive_fds(simpleserver_t) depth: 0
-#line 27
+#line 28
  	
 
  	 	
-#line 29
+#line 30
 ##### begin miscfiles_read_localization(simpleserver_t) depth: 1
-#line 29
+#line 30
  	
-#line 29
+#line 30
 	
-#line 29
+#line 30
 	
-#line 29
+#line 30
 		require {
-#line 29
+#line 30
 			
-#line 29
+#line 30
 		type locale_t;
-#line 29
+#line 30
 	
-#line 29
+#line 30
 		} # end require
-#line 29
+#line 30
 	
-#line 29
+#line 30
 
-#line 29
+#line 30
 
-#line 29
+#line 30
 	 	 	
-#line 29
+#line 30
 ##### begin files_read_etc_symlinks(simpleserver_t) depth: 2
-#line 29
+#line 30
  	
-#line 29
+#line 30
 	
-#line 29
+#line 30
 	
-#line 29
+#line 30
 		require {
-#line 29
+#line 30
 			
-#line 29
+#line 30
 		type etc_t;
-#line 29
+#line 30
 	
-#line 29
+#line 30
 		} # end require
-#line 29
+#line 30
 	
-#line 29
+#line 30
 
-#line 29
+#line 30
 
-#line 29
+#line 30
 	
-#line 29
+#line 30
 	allow simpleserver_t etc_t:dir { getattr search open };
-#line 29
+#line 30
 	allow simpleserver_t etc_t:lnk_file { getattr read };
-#line 29
+#line 30
 
-#line 29
+#line 30
 
-#line 29
+#line 30
 	 	
-#line 29
+#line 30
 ##### end files_read_etc_symlinks(simpleserver_t) depth: 1
-#line 29
+#line 30
  	
-#line 29
+#line 30
 	 	 	
-#line 29
+#line 30
 ##### begin files_search_usr(simpleserver_t) depth: 2
-#line 29
+#line 30
  	
-#line 29
+#line 30
 	
-#line 29
+#line 30
 	
-#line 29
+#line 30
 		require {
-#line 29
+#line 30
 			
-#line 29
+#line 30
 		type usr_t;
-#line 29
+#line 30
 	
-#line 29
+#line 30
 		} # end require
-#line 29
+#line 30
 	
-#line 29
+#line 30
 
-#line 29
+#line 30
 
-#line 29
+#line 30
 	allow simpleserver_t usr_t:dir { getattr search open };
-#line 29
+#line 30
 
-#line 29
+#line 30
 	 	
-#line 29
+#line 30
 ##### end files_search_usr(simpleserver_t) depth: 1
-#line 29
+#line 30
  	
-#line 29
+#line 30
 	allow simpleserver_t locale_t:dir { getattr search open read lock ioctl };
-#line 29
+#line 30
 	
-#line 29
+#line 30
 	allow simpleserver_t locale_t:dir { getattr search open };
-#line 29
+#line 30
 	allow simpleserver_t locale_t:file { open { getattr read ioctl lock } };
-#line 29
+#line 30
 
-#line 29
+#line 30
 	
-#line 29
+#line 30
 	allow simpleserver_t locale_t:dir { getattr search open };
-#line 29
+#line 30
 	allow simpleserver_t locale_t:lnk_file { getattr read };
-#line 29
+#line 30
 
-#line 29
+#line 30
 	allow simpleserver_t locale_t:file map;
-#line 29
+#line 30
 
-#line 29
+#line 30
 	 	
-#line 29
+#line 30
 ##### end miscfiles_read_localization(simpleserver_t) depth: 0
-#line 29
+#line 30
  	
 
 # Allow working with tcp socket 
 allow simpleserver_t self:tcp_socket { accept bind create getattr listen read shutdown write };
 allow simpleserver_t node_t:tcp_socket node_bind;
+allow simpleserver_t self:tcp_socket setopt;
 allow simpleserver_t soundd_port_t:tcp_socket name_bind;
+allow simpleserver_t unreserved_port_t:tcp_socket name_bind;
 
+# Allow working with /var/www/html content
 allow simpleserver_t httpd_sys_content_t:dir read;
 allow simpleserver_t httpd_sys_content_t:file { getattr ioctl open read write };
